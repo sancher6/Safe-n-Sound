@@ -2,9 +2,11 @@
     <string name="loginText">Login</string>
     <string name="usernameText">Username</string>
     <string name="passwordText">Password</string>
+    <string name="reenterText">Re-enter Password</string>
     <string name="guestText">Enter as Guest</string>
-    <string name="forgotpwText">Forgot Password?</string>
+    <string name="register">Register</string>
     <string name="signinText">Sign In</string>
+    <string name="enterText">Enter</string>
     <string name="osmosisText">Osmosis</string>
     <string name="app_name">Osmosis</string>
     <string name="waterentryText">Enter Water Amount</string>
@@ -13,7 +15,28 @@
     <string name="panicText">PANIC</string>
     <string name="resourcesText">Resources</string>
     <string name="leavealogText">Leave a Log</string>
+    <string name="leavelogText">Leave a Log...</string>
     <string name="calendarText">Calendar</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_safen_sound">SafenSound</string>
+    <string name="title_activity_resources">Resources</string>
+    <string name="logText">Log</string>
+    <string name="large_text">
+        "<b>DVRN </b>\n\n"
+
+        "\"Since it was organized in 1994, the NRCDV has provided operational support to the Domestic Violence Resource Network (DVRN),"
+        "which currently includes two national resource centers, four special issue resource centers, three culturally-specific resource centers,"
+        "three new capacity centers, and the National Domestic Violence Hotline. The DVRN is funded by the U.S. Department of Health and Human Services"
+        "to inform and strengthen domestic violence intervention and prevention efforts at the individual, community, and societal levels.\" \n"
+        "- National Resource Center on Domestic Violence \n\n"
+        "<b> The Hotline </b>\n\n"
+        "\"At The Hotline, we provide more than a listening ear. We want to empower you with information. Check out our lists of resources for victims and"
+        "survivors, as well as the facts about domestic violence in the United States.\" \n"
+        "- The National Domestic Violence Hotline\n\n"
+        "<b>FYSM</b> \n\n"
+        "\"More than 1 in 3 women and 1 in 4 men across the United States have experienced violence from an intimate partner.  If you or someone you know has experienced domestic violence, you are not alone.  The Family Violence Prevention and Services Program (FVPSA),"
+        "is the primary Federal funding stream for a national network of domestic violence shelters and programs.\"\n"
+        "- Family and Youth Services Bureau \n\n"
+
+    </string>
 </resources>

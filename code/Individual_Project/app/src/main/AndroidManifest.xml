@@ -19,8 +19,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".WaterTracker" />
-        <activity android:name=".SafenSound"></activity>
+        <activity
+            android:name=".WaterTracker"
+            android:label="@string/osmosisText" />
+        <activity android:name=".SafenSound" />
+        <activity
+            android:name=".activity_register"
+            android:label="@string/register" />
+        <activity
+            android:name=".Resources"
+            android:label="@string/title_activity_resources"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Log" />
+        <activity android:name=".Calendar"></activity>
     </application>
-
+<uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
 </manifest>

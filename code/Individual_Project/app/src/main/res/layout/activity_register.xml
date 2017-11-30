@@ -4,15 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.peruv.osmosis.LoginMain"
-    tools:showIn="@layout/activity_login_main">
+    tools:context="com.example.peruv.osmosis.activity_register">
 
     <TextView
         android:id="@+id/titleTextView"
-        android:layout_width="80dp"
+        android:layout_width="130dp"
         android:layout_height="31dp"
-        android:text="@string/loginText"
+        android:text="@string/register"
         android:textAlignment="viewStart"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -26,7 +24,7 @@
         android:id="@+id/usernameTextField"
         android:layout_width="299dp"
         android:layout_height="44dp"
-        android:layout_marginBottom="260dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -35,10 +33,10 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleTextView"
-        app:layout_constraintVertical_bias="0.111" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.184" />
 
     <EditText
         android:id="@+id/passwordTextField"
@@ -51,61 +49,45 @@
         android:ems="10"
         android:hint="@string/passwordText"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/registerButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usernameTextField"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/registerButton"
-        android:layout_width="168dp"
-        android:layout_height="24dp"
-        android:layout_marginBottom="224dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@null"
-        android:text="@string/register"
-        android:textColor="@color/hyperBlue"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.954"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usernameTextField"
-        app:layout_constraintVertical_bias="0.744" />
-
-    <Button
-        android:id="@+id/enterguestButton"
-        android:layout_width="258dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="168dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/guestText"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerButton"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Button
-        android:id="@+id/signinButton"
-        android:layout_width="299dp"
-        android:layout_height="44dp"
-        android:layout_marginBottom="276dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/red"
-        android:text="@string/signinText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordTextField" />
+        app:layout_constraintTop_toBottomOf="@+id/usernameTextField"
+        app:layout_constraintVertical_bias="0.11" />
 
+    <Button
+        android:id="@+id/registerButton"
+        android:layout_width="299dp"
+        android:layout_height="44dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/red"
+        android:text="@string/register"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reenterpassword"
+        app:layout_constraintVertical_bias="0.173" />
+
+    <EditText
+        android:id="@+id/reenterpassword"
+        android:layout_width="299dp"
+        android:layout_height="44dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="@string/reenterText"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordTextField"
+        app:layout_constraintVertical_bias="0.144" />
 </android.support.constraint.ConstraintLayout>
