@@ -8,21 +8,29 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+//-----------------------------------------------------------------------------------------
+//
+//  Function: Log class
+//
+//    Parameters:
+//    NA
+//
+//    Pre-condition: Log button is pressed
+//-----------------------------------------------------------------------------------------
 public class Log extends AppCompatActivity {
-    EditText logText;
     Button logButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log);
-        final EditText logtext = (EditText)findViewById(R.id.logText);
-        Button logenter = (Button)findViewById(R.id.logButton);
+        final EditText logText = (EditText)findViewById(R.id.logText);
+        logButton = (Button)findViewById(R.id.logButton);
 
         //sets resources button action
-        logenter.setOnClickListener(new View.OnClickListener(){
+        logButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                String log = logtext.getText().toString();
+                String log = logText.getText().toString();
                 if(log.equals("")){
                         Toast temp = Toast.makeText(Log.this,"No Journal Entry Recorded ", Toast.LENGTH_SHORT);
                         temp.show();

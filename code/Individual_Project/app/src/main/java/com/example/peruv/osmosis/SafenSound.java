@@ -10,9 +10,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
 
+//-----------------------------------------------------------------------------------------
+//
+//  Function: safensound class
+//
+//    Parameters:
+//    NA
+//
+//    Pre-condition: Successful Login
+//    Post-condition: Button is pressed to access different pages
+//-----------------------------------------------------------------------------------------
 public class SafenSound extends AppCompatActivity {
     //initialize db
-    DBHelper myDb;
+    myDbAdapter myDb;
     //initialize variables
     Button panicButton,resourcesButton,leavealogButton,calendarButton;
     @Override
@@ -20,7 +30,7 @@ public class SafenSound extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_safen_sound);
         //casts variables to conduct an action
-
+        myDb = new myDbAdapter(this);
         Button panic = (Button)findViewById(R.id.panicButton);
         Button resources = (Button)findViewById(R.id.resourcesButton);
         Button leavelog = (Button)findViewById(R.id.leavealogButton);
@@ -47,16 +57,20 @@ public class SafenSound extends AppCompatActivity {
                 startActivity(new Intent(SafenSound.this,Calendar.class));
             }
         });
+        //-----------------------------------------------------------------------------------------
+//
+//  Function: panicButton
+//
+//    Parameters:
+//    NA
+//
+//    Pre-condition: Panic button is pressed
+//    Post-condition: Phone # is called
+//-----------------------------------------------------------------------------------------
         panic.setOnClickListener(new View.OnClickListener(){
                     @Override
                     public void onClick(View v){
-//                        Intent callintent = new Intent(Intent.ACTION_CALL);
-//                        callintent.setData(Uri.parse("tel : 9084328835"));
-//                        if(ActivityCompat.checkSelfPermission(SafenSound.this,Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
-//                            return;
-//                        }
-//                        startActivity(callintent);
-                        dialContactPhone("6505551212");
+                        dialContactPhone("911");
                     }
                 }
         );

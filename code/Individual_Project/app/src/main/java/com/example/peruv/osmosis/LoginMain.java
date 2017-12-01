@@ -1,33 +1,48 @@
 package com.example.peruv.osmosis;
 
 import android.content.Intent;
-import android.os.Bundle;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+//-----------------------------------------------------------------------------------------
+//
+//  Function: LoginMain class
+//
+//    Parameters:
+//    NA
+//
+//    Pre-condition: activity is called
+//-----------------------------------------------------------------------------------------
 public class LoginMain extends AppCompatActivity {
-    //initialize variables
-    DBHelper myDb;
-    EditText username,password;
-    Button signin,register,enterguest;
+    EditText username, Pass , updateold, updatenew, delete;
+    myDbAdapter helper;
     @Override
+    //-----------------------------------------------------------------------------------------
+//
+//  Function: onCreate ()
+//
+//    Parameters:
+//    Bundle
+//
+//    Pre-condition: LoginMain.java must be called to be created
+//    Post-condition: Login page is displayed
+//-----------------------------------------------------------------------------------------
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_main);
-        //creates instance of database
-        this.myDb = myDb;
-
-        //casts variables to conduct an action
-        final EditText  username = (EditText)findViewById(R.id.usernameTextField);
-        final EditText password = (EditText)findViewById(R.id.passwordTextField);
+        username= (EditText) findViewById(R.id.usernameTextField);
+        Pass= (EditText) findViewById(R.id.passwordTextField);
         Button signin = (Button)findViewById(R.id.signinButton);
         Button register = (Button)findViewById(R.id.registerButton);
         Button enterguest = (Button)findViewById(R.id.enterguestButton);
+
+        helper = new myDbAdapter(this);
         //adds functionality to enter guest button
         enterguest.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -45,12 +60,12 @@ public class LoginMain extends AppCompatActivity {
         //adds functionality to login button
         signin.setOnClickListener(new View.OnClickListener(){
             @Override
-                public void onClick(View v) {
+            public void onClick(View v) {
                 if (v.getId() == R.id.signinButton) {
                     String usernametext = username.getText().toString();
-                    String passwordtext = password.getText().toString();
+                    String passwordtext = Pass.getText().toString();
 
-//                    String passwordcheck = myDb.searchPass(usernametext);
+//                    String passwordcheck = helper.searchPass(usernametext);
 //                    if(passwordtext.equals(passwordcheck)){
 //                        startActivity(new Intent(LoginMain.this,SafenSound.class));
 //                    }
@@ -73,25 +88,54 @@ public class LoginMain extends AppCompatActivity {
             }
         });
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_login_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+    //-----------------------------------------------------------------------------------------
+//
+//  Function: addUser ()
+//
+//    Parameters:
+//    View
+//
+//    Pre-condition: addUser method is called
+//    Post-condition: User is successfully added
+//-----------------------------------------------------------------------------------------
+    public void addUser(View view)
+    {
+        String t1 = username.getText().toString();
+        String t2 = Pass.getText().toString();
+        if(t1.isEmpty() || t2.isEmpty())
+        {
+            Message.message(getApplicationContext(),"Enter Both Name and Password");
         }
-
-        return super.onOptionsItemSelected(item);
+        else
+        {
+            long id = helper.insertData(t1,t2);
+            if(id<=0)
+            {
+                Message.message(getApplicationContext(),"Insertion Unsuccessful");
+                username.setText("");
+                Pass.setText("");
+            } else
+            {
+                Message.message(getApplicationContext(),"Insertion Successful");
+                username.setText("");
+                Pass.setText("");
+            }
+        }
+    }
+    //-----------------------------------------------------------------------------------------
+//
+//  Function: viewData ()
+//
+//    Parameters:
+//    View
+//
+//    Pre-condition: viewData method is called to view contents of the table within
+//                   the database.
+//    Post-condition: Data is all successfully displayed
+//-----------------------------------------------------------------------------------------
+    public void viewdata(View view)
+    {
+        String data = helper.getData();
+        Message.message(this,data);
     }
 }
